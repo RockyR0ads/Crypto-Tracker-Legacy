@@ -26,13 +26,13 @@ export class GetPrices extends Component {
         var counter = 1;
         return (
             
-            <div>
+            <div className="fullTable">
                 <table className="table table-striped table-dark" >
                 <thead>
                     <tr id="tableHead"> 
                     <th scope="col">Rank</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Price(USD)</th>
                     
                     </tr>
                 </thead>
@@ -44,7 +44,7 @@ export class GetPrices extends Component {
                             <td id ="rank" scope="row">{counter++}</td>
                             
                                 <td id ="name">{key}</td>
-                                <td id="price">{this.state.cryptos[key].USD}</td>
+                                <td id="price">${this.state.cryptos[key].USD}</td>
 
                         </tr>
                         
@@ -55,6 +55,7 @@ export class GetPrices extends Component {
                  </table>
 
             </div>
+            
         );
         
     }

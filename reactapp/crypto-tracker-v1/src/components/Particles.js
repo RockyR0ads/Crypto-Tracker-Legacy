@@ -5,14 +5,8 @@ import GetPrices from'./callCryptoAPI'
 export class ParticlesClass extends Component {
     render() {
         return (
-            
-            
             <div id="particles-js">
-              <div className="title">
-                  <h1>CryptoCurrency Tracker</h1>
-                  <p></p>
-                
-              </div>
+              
                 <Particles
                             params={{
                               "particles": {
@@ -110,7 +104,7 @@ export class ParticlesClass extends Component {
                                     "speed": 3
                                   },
                                   "repulse": {
-                                    "distance": 100
+                                    "distance": 50
                                   },
                                   "push": {
                                     "particles_nb": 4
@@ -123,6 +117,8 @@ export class ParticlesClass extends Component {
                             }
                           }
                           />
+
+                          
                           
             </div>
             
