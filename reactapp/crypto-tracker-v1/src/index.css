@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  
+}
+
+#particles-js{ 
+  position: absolute; 
+  width: 100%; 
+  height: 100%; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  
+}
+
+.title{
+ color: white;
+ 
+}
+
+
+#tableHead{
+ color: gold;
+}
+td{
+  padding: 1rem;
+}
+
+.roar{
+  padding: 5rem;
+}
+.apiTable{
+  padding: 1rem;
+}
