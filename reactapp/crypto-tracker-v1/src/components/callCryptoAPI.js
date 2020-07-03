@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-
+import NumberFormat from 'react-number-format';
 
 export class GetPrices extends Component {
     constructor(props){
@@ -14,10 +14,11 @@ export class GetPrices extends Component {
     }
 
     componentDidMount(){
-        axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,USDT,XRP,BCH,BSV,LTC,BNB,EOS,ADA&tsyms=USD&api_key={362a965976ce99a80e7e7955dbb0353c2d9db8df0ecd2817c32052ea3453b07f}')
+        axios.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,USDT,XRP,BCH,BSV,LTC,BNB,EOS,ADA&tsyms=USD&api_key={362a965976ce99a80e7e7955dbb0353c2d9db8df0ecd2817c32052ea3453b07f}')
         .then(res => {
             const cryptos = res.data
-            console.log(cryptos);
+            //console.log(cryptos);
+            
             this.setState({cryptos: cryptos})
         })
     }
@@ -37,14 +38,16 @@ export class GetPrices extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                {Object.keys(this.state.cryptos).map((key)=> (
-                
-                        
+                {Object.keys(this.state.cryptos).map((key, index)=> (
+                    
+                     
                         <tr className="roar">
                             <td id ="rank" scope="row">{counter++}</td>
                             
                                 <td id ="name">{key}</td>
-                                <td id="price">${this.state.cryptos[key].USD}</td>
+                                <td id="price"><NumberFormat value={this.state.cryptos[key].USD} displayType={'text'} decimalPrecision={2} thousandSeparator={true} prefix={'$'} /></td>
+                                <td id ="dog"></td>
+                                
 
                         </tr>
                         

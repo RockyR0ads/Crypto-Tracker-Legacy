@@ -18,7 +18,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
-  z-index: -1;
+  
 }
 
 h1{
@@ -51,14 +51,30 @@ td{
 }
 
 .fullTable{
-  width: 50%;
   
-  margin: 0px;
+  position: relative;
+  margin-top: 0px;
   font-size: 20px;
+  padding-top: 200px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  width: 600px
 }
 .app{
  
+}
+.foot{
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  width: 100%;
+}
+.head{
+  top: 0;
+  left:0;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
 }

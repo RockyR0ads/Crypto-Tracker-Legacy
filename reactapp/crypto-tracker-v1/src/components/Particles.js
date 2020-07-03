@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Particles from 'react-particles-js';
-import GetPrices from'./callCryptoAPI'
+
 
 export class ParticlesClass extends Component {
     render() {

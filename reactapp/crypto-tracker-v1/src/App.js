@@ -1,25 +1,30 @@
 import React, {Component} from 'react'
 
 import ParticlesClass from './components/Particles';
-import Particles from 'react-particles-js';
 import GetPrices from './components/callCryptoAPI'
-import getTicker from './components/ticker'
+import GetTicker from './components/ticker';
 
 function App() {
   return (
     <div className="app">
       
-       <header>
+       <header className="head">
          
-       <h1>CryptoCurrency Tracker</h1> 
+       <h1>Crypto Market Watch</h1> 
        
        
       </header>
       
       <ParticlesClass/>
       <GetPrices/>
-      {/* <getTicker/> */}
+
+      
+
+      <footer className="foot">
+      <GetTicker/>
+    </footer>
     </div>
+    
     
   );
 }
