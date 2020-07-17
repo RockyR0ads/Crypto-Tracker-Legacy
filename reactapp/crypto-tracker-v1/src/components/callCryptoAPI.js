@@ -8,8 +8,12 @@ export class GetPrices extends Component {
 
         this.state = {
             cryptos:[],
+            coins:[],
             counter: 0
         };
+
+        
+      
 
     }
 
@@ -17,14 +21,19 @@ export class GetPrices extends Component {
         axios.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,USDT,XRP,BCH,BSV,LTC,BNB,EOS,ADA&tsyms=USD&api_key={362a965976ce99a80e7e7955dbb0353c2d9db8df0ecd2817c32052ea3453b07f}')
         .then(res => {
             const cryptos = res.data
-            //console.log(cryptos);
+            const coins = cryptos["DISPLAY"]
+            console.log(coins);
             
-            this.setState({cryptos: cryptos})
+           // this.setState({cryptos: cryptos})
+            this.setState({coins: coins})
         })
     }
 
     render() {
         var counter = 1;
+        var array = ["BTC","ETH"]
+        var coins = "BTC"
+       
         return (
             
             <div className="fullTable">
@@ -38,15 +47,15 @@ export class GetPrices extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                {Object.keys(this.state.cryptos).map((key, index)=> (
+                {Object.keys(this.state.coins).map((key)=> (
                     
-                     
+                 
                         <tr className="roar">
                             <td id ="rank" scope="row">{counter++}</td>
                             
                                 <td id ="name">{key}</td>
-                                <td id="price"><NumberFormat value={this.state.cryptos[key].USD} displayType={'text'} decimalPrecision={2} thousandSeparator={true} prefix={'$'} /></td>
-                                <td id ="dog"></td>
+                                {<td id="price"><NumberFormat value={this.state.coins[key].USD.PRICE} displayType={'text'} decimalPrecision={2} thousandSeparator={true} prefix={'$'} /></td>}
+                                
                                 
 
                         </tr>
