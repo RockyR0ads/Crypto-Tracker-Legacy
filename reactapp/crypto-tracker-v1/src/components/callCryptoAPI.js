@@ -10,13 +10,9 @@ export class GetPrices extends Component {
             cryptos:[],
             coins:[],
             counter: 0,
-            changeColor: "#7FFF00",
-            changeValue: 0 
+            changeColor: "#FFFFFF",
+            tempValue: 0 
         };
-
-        
-      
-
     }
 
     componentDidMount(){
@@ -29,13 +25,51 @@ export class GetPrices extends Component {
            // this.setState({cryptos: cryptos})
             this.setState({coins: coins})
         })
+        
     }
-    
 
+    componentDidUpdate(value){
+        console.log(value);
+        var check = Math.sign(2)
+        if(value > 1){
+           // test();
+           // this.setState({changeColor: "#ff0000"})
+        }else{
+          //  this.setState({changeColor: "#00cc00"})
+        }
+        return(
+            value 
+        );
+    }
+
+    checkChange=(value)=>{
+        
+       // console.log(value);
+        var check = Math.sign(2)
+        if(value == 1.65){
+           // test();
+            this.setState({changeColor: "#ff0000"})
+        }else{
+          //  this.setState({changeColor: "#00cc00"})
+        }
+        return(
+            value 
+        );
+        
+        
+    }
+    test(){
+        
+        
+           this.setState({changeColor: "#ff0000"})
+        
+        
+        
+    }
+
+   
     render() {
         var counter = 1;
-        var array = ["BTC","ETH"]
-        var coins = "BTC"
         
         return (
             
@@ -57,15 +91,15 @@ export class GetPrices extends Component {
                 <tbody>
                 {Object.keys(this.state.coins).map((key)=> (
                         
-                         
+                        
                         
                         <tr className="roar">
                             <td id ="rank" scope="row">{counter++}</td>
                             
                                 <td id ="name">{key}</td>
                                 {<td id="price"><NumberFormat value={this.state.coins[key].USD.PRICE} displayType={'text'} decimalPrecision={2} thousandSeparator={true} prefix={'$'} /></td>}
-                                <td id ="1hrChange" style={{color:this.state.changeColor}}>{ this.state.coins[key].USD.CHANGEHOUR}</td>
-                                <td id ="24hrChange" >{this.state.coins[key].USD.CHANGE24HOUR} %{this.state.coins[key].USD.CHANGEPCT24HOUR}</td>
+                                <td id ="1hrChange"  value={this.state.coins[key].USD.CHANGEPCTHOUR} style={{color:this.state.changeColor}}>{this.state.coins[key].USD.CHANGEPCTHOUR}%</td>
+                                <td id ="24hrChange" style={{color:this.state.changeColor}}>{this.componentDidUpdate(this.state.coins[key].USD.CHANGEPCT24HOUR)}%</td>
                                 <td id ="24Volume" >{this.state.coins[key].USD.VOLUME24HOUR}</td>
                                 <td id ="marketCap" >{this.state.coins[key].USD.MKTCAP}</td>
 
